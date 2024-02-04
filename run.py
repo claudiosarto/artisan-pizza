@@ -19,30 +19,44 @@ menu = SHEET.worksheet('menu')
 menu_dictionary = {}
 
 # Add Header as key and remaining items as list of values
-"""
+
 for column in range(menu.col_count):
     #print(menu.col_values(column+1)[0]) #key value
     #print(menu.col_values(column+1)[1:]) #key list
     menu_dictionary[menu.col_values(column+1)[0].lower()] = menu.col_values(column+1)[1:]
-"""
+
 #pprint.pp(menu_dictionary)
 
+class pizza:
+    pass    
 
+class order:
+    pass
 
 def welcome():
     """
     Welcome function to gather Customer Name
     """
     print("Welcome to Artisan-Pizza - Where Artisan Craftsmanship Meets Your Cravings!")
+    customerdata=["name","number"]
     while True:
-        customername = input("Please enter your name: \n")
-        if customername.isalpha():
+        customerdata[0] = input("Please enter your name: \n")
+        if customerdata[0].isalpha():
             break
         else:
-            print("\nPlease check your name, only characters [A-Z] are accepted")
-    return customername
+            print("\nPlease check your name, only [A-Z] characters are accepted")
+
+    while True:
+        customerdata[1] = input("Please enter your phone number: \n")
+        if customerdata[1].isdigit():
+            break
+        else:
+            print("\nPlease check your phone number, only [0-9] characters are accepted")    
+    
+    return customerdata
 
 def main():
     customer=welcome()
+    print(customer)
 
 main()
