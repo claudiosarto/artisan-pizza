@@ -1,3 +1,4 @@
+import pprint
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -14,5 +15,15 @@ SHEET = GSPREAD_CLIENT.open('artisan_pizza')
 
 menu = SHEET.worksheet('menu')
 
-data = menu.get_all_values()
-print(data)
+
+
+# Define empty menu dictionary
+menu_dictionary = {}
+
+# Add Header as key and remaining items as list of values
+for column in range(menu.col_count):
+    #print(menu.col_values(column+1)[0]) #key value
+    #print(menu.col_values(column+1)[1:]) #key list
+    menu_dictionary[menu.col_values(column+1)[0]] = menu.col_values(column+1)[1:]
+
+
