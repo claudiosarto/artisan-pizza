@@ -77,6 +77,28 @@ def show_menu():
         # Print all other list elements (ingredients/toppings)
         print(*menu_dictionary[i][1:], sep=", ")     
 
+def select_pizza_base():
+    """
+    Function to select the pizza base
+    """
+    while True:
+        print("Please select the pizza base: ")
+        print('Normal Dough')
+        print('Glutenfree - +2.5€')
+        print('Whole Wheat - +1.5€')
+        pizza_base = input("[N/G/W]): \n").lower()
+        if pizza_base == "n" or pizza_base == "g" or pizza_base == "w":
+            break
+        else:
+            print("Invalid input, please try again\n")
+    
+    match pizza_base:
+        case "n":
+            return "Normal"
+        case "g":
+            return "Glutenfree"
+        case "w":
+            return "Whole Wheat"     
 
 def select_pizza_size():
     """
@@ -100,7 +122,6 @@ def select_pizza_size():
             return "Large"
         case "xl":
             return "Extra Large"
-        
 
 def build_pizza():
     """
@@ -115,7 +136,9 @@ def build_pizza():
             print("\nCannot find your pizza in the menu, please try again\n")
 
     pizza = pizza_obj(selected_pizza,menu_dictionary[selected_pizza][0],menu_dictionary[selected_pizza][1:])
+    pizza.base = select_pizza_base()
     pizza.size = select_pizza_size()
+
 
     print("Selected pizza:")
     pprint.pprint(vars(pizza))
