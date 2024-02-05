@@ -14,6 +14,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('artisan_pizza')
 
+
 def read_menu():
     print("Please wait while we load our pizzas menu...")
     menu = SHEET.worksheet('menu')
@@ -126,7 +127,7 @@ def select_pizza_size(pizza):
                 break
             case "l":
                 pizza.size = "Large"
-                pizza.price +=1                
+                pizza.price +=1
                 break
             case "xl":
                 pizza.size = "Extra Large"
@@ -152,12 +153,14 @@ def build_pizza(menu_dict):
         else:
             print("\nCannot find your pizza in the menu, please try again\n")
 
-    pizza = pizza_obj(selected_pizza, menu_dict[selected_pizza][0],
-                      menu_dict[selected_pizza][1:])
-    pizza.base = select_pizza_base(pizza)
-    pizza.size = select_pizza_size(pizza) 
+    pizza = pizza_obj(selected_pizza, menu_dict[selected_pizza][0],menu_dict[selected_pizza][1:])
+    """ 
+    print("Build pizza pizza:")
+    pprint.pprint(vars(pizza))
+    """
+    select_pizza_base(pizza)
+    select_pizza_size(pizza)
     return pizza
-
 
 
 def main():
@@ -169,7 +172,7 @@ def main():
     menu_dict = read_menu()
     show_menu(menu_dict)
     pizza = build_pizza(menu_dict)
-    print("Selected pizza:")
+    print("\n Main pprint pizza:")
     pprint.pprint(vars(pizza))
 
 
