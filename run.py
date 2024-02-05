@@ -24,9 +24,10 @@ for column in range(menu.col_count):
     #print(column)
     #print(menu.col_values(column+1)[0]) #key value
     #print(menu.col_values(column+1)[1:]) #key list
-    menu_dictionary[menu.col_values(column+1)[0]] = menu.col_values(column+1)[1:]
+    menu_dict[menu.col_values(column+1)[0]] = menu.col_values(column+1)[1:]
 
 #pprint.pp(menu_dictionary)
+
 
 class pizza_obj:
     """
@@ -40,8 +41,10 @@ class pizza_obj:
         self.size = size
         self.base = base
 
+
 class order:
     pass
+
 
 def welcome():
     """
@@ -65,6 +68,7 @@ def welcome():
     
     return customerdata
 
+
 def show_menu():
     """
     Print the whole menu read previously from google sheet and give option to select pizza
@@ -76,6 +80,7 @@ def show_menu():
         print(f"\n{i}: {menu_dictionary[i][0]}€ - ", end='')
         # Print all other list elements (ingredients/toppings)
         print(*menu_dictionary[i][1:], sep=", ")     
+
 
 def select_pizza_base():
     """
@@ -100,6 +105,7 @@ def select_pizza_base():
             case _:
                 print("Invalid input, please try again\n")
 
+
 def select_pizza_size():
     """
     Function to select the pizza size
@@ -123,6 +129,7 @@ def select_pizza_size():
             case _:
                 print("Invalid input, please try again\n")
 
+
 def build_pizza():
     """
     Function to select and build the pizza from Menu
@@ -135,7 +142,7 @@ def build_pizza():
         else:
             print("\nCannot find your pizza in the menu, please try again\n")
 
-    pizza = pizza_obj(selected_pizza,menu_dictionary[selected_pizza][0],menu_dictionary[selected_pizza][1:])
+    pizza = pizza_obj(selected_pizza, menu_dictionary[selected_pizza][0], menu_dictionary[selected_pizza][1:])
     pizza.base = select_pizza_base()
     pizza.size = select_pizza_size()
 
@@ -143,6 +150,7 @@ def build_pizza():
     print("Selected pizza:")
     pprint.pprint(vars(pizza))
     return pizza
+
 
 def main():
     """
