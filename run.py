@@ -17,7 +17,7 @@ SHEET = GSPREAD_CLIENT.open('artisan_pizza')
 menu = SHEET.worksheet('menu')
 
 # Define empty menu dictionary
-menu_dictionary = {}
+menu_dict = {}
 
 # Add Header as key and remaining items as list of values
 for column in range(menu.col_count):
