@@ -101,7 +101,7 @@ def select_pizza_base(pizza):
         pizza_base = input("[N/G/W]): \n").lower()
         match pizza_base:
             case "n":
-                return "Normal"
+                pizza.base = "Normal"
                 break
             case "g":
                 pizza.base = "Glutenfree"
