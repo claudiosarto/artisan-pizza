@@ -110,18 +110,18 @@ def select_pizza_size():
         print('Large - 12": +1€')
         print('Extra Large - 14": +2€')
         pizza_size = input("[S/L/XL]): \n").lower()
-        if pizza_size == "s" or pizza_size == "l" or pizza_size == "xl":
-            break
-        else:
-            print("Invalid input, please try again\n")
-    
-    match pizza_size:
-        case "s":
-            return "Standard"
-        case "l":
-            return "Large"
-        case "xl":
-            return "Extra Large"
+        match pizza_size:
+            case "s":
+                return "Standard"
+                break
+            case "l":
+                return "Large"
+                break
+            case "xl":
+                return "Extra Large"  
+                break
+            case _:
+                print("Invalid input, please try again\n")
 
 def build_pizza():
     """
