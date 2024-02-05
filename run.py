@@ -14,19 +14,13 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('artisan_pizza')
 
-menu = SHEET.worksheet('menu')
-
-# Define empty menu dictionary
-menu_dict = {}
-
-# Add Header as key and remaining items as list of values
-for column in range(menu.col_count):
-    """print(column)
-    print(menu.col_values(column+1)[0]) #key value
-    print(menu.col_values(column+1)[1:]) #key list"""
-    menu_dict[menu.col_values(column+1)[0]] = menu.col_values(column+1)[1:]
-
-"""pprint.pp(menu_dict)"""
+def read_menu():
+    print("Please wait while we load our pizzas menu...")
+    menu = SHEET.worksheet('menu')
+    menu_dict = {}
+    for column in range(menu.col_count):
+        menu_dict[menu.col_values(column+1)[0]] = menu.col_values(column+1)[1:]
+    return menu_dict
 
 
 class pizza_obj:
@@ -70,7 +64,7 @@ def welcome():
     return customerdata
 
 
-def show_menu():
+def show_menu(menu_dict):
     """
     Print the whole menu read previously from google sheet and give option
     to select pizza
@@ -146,7 +140,7 @@ def add_extra_toppings(pizza):
     pass
 
 
-def build_pizza():
+def build_pizza(menu_dict):
     """
     Function to select and build the pizza from Menu
     """
@@ -172,8 +166,9 @@ def main():
     """
     os.system('clear')
     customer = welcome()
-    show_menu()
-    pizza = build_pizza()
+    menu_dict = read_menu()
+    show_menu(menu_dict)
+    pizza = build_pizza(menu_dict)
     print("Selected pizza:")
     pprint.pprint(vars(pizza))
 
