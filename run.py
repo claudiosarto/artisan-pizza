@@ -53,14 +53,14 @@ def welcome():
         if customerdata[0].isalpha():
             break
         else:
-            print("\nPlease check your name, only [A-Z] characters are accepted")
+            print("Please check your name, only [A-Z] characters are accepted")
 
     while True:
         customerdata[1] = input("Please enter your phone number: \n")
         if customerdata[1].isdigit():
             break
         else:
-            print("\nPlease check your phone number, only [0-9] characters are accepted")    
+            print("Please check your phone number, only [0-9] characters are accepted")    
     
     return customerdata
 
@@ -82,12 +82,15 @@ def select_pizza_size():
     Function to select the pizza size
     """
     while True:
-        print("Please select the pizza size: Standard/Large/Extra Large")
+        print("Please select the pizza size: ")
+        print('Standard - 10"')
+        print('Large - 12": +1€')
+        print('Extra Large - 14": +2€')
         pizza_size = input("[S/L/XL]): \n").lower()
         if pizza_size == "s" or pizza_size == "l" or pizza_size == "xl":
             break
         else:
-            print("\nInvalid input, please try again\n")
+            print("Invalid input, please try again\n")
     
     match pizza_size:
         case "s":
@@ -104,10 +107,11 @@ def build_pizza():
     """
     while True:
         selected_pizza = input("\nPlease select the pizza you'd like to order: \n")
+        print("\n")
         if selected_pizza in menu_dictionary or selected_pizza == "Extra Toppings":
             break
         else:
-            print("\nCannot find the pizza you typed, please try again\n")
+            print("\nCannot find your pizza in the menu, please try again\n")
 
     pizza = pizza_obj(selected_pizza,menu_dictionary[selected_pizza][0],menu_dictionary[selected_pizza][1:])
     pizza.size = select_pizza_size()
