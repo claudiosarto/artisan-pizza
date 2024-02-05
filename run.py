@@ -21,11 +21,13 @@ menu_dictionary = {}
 # Add Header as key and remaining items as list of values
 
 for column in range(menu.col_count):
+    #print(column)
     #print(menu.col_values(column+1)[0]) #key value
     #print(menu.col_values(column+1)[1:]) #key list
-    menu_dictionary[menu.col_values(column+1)[0].lower()] = menu.col_values(column+1)[1:]
+    menu_dictionary[menu.col_values(column+1)[0]] = menu.col_values(column+1)[1:]
 
 #pprint.pp(menu_dictionary)
+
 
 class pizza:
     pass    
@@ -55,8 +57,14 @@ def welcome():
     
     return customerdata
 
+def show_menu():
+    print("\nHere our pizza list and related included toppings:")
+    for i in menu_dictionary:
+        print(f"\n{i}: ")
+        print(*menu_dictionary[i], sep=", ")
+
 def main():
     customer=welcome()
-    print(customer)
+    show_menu()
 
 main()
