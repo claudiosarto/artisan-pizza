@@ -87,18 +87,18 @@ def select_pizza_base():
         print('Glutenfree - +2.5€')
         print('Whole Wheat - +1.5€')
         pizza_base = input("[N/G/W]): \n").lower()
-        if pizza_base == "n" or pizza_base == "g" or pizza_base == "w":
-            break
-        else:
-            print("Invalid input, please try again\n")
-    
-    match pizza_base:
-        case "n":
-            return "Normal"
-        case "g":
-            return "Glutenfree"
-        case "w":
-            return "Whole Wheat"     
+        match pizza_base:
+            case "n":
+                return "Normal"
+                break
+            case "g":
+                return "Glutenfree"
+                break
+            case "w":
+                return "Whole Wheat"  
+                break
+            case _:
+                print("Invalid input, please try again\n")
 
 def select_pizza_size():
     """
