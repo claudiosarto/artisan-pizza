@@ -20,7 +20,6 @@ menu = SHEET.worksheet('menu')
 menu_dictionary = {}
 
 # Add Header as key and remaining items as list of values
-
 for column in range(menu.col_count):
     #print(column)
     #print(menu.col_values(column+1)[0]) #key value
@@ -29,9 +28,14 @@ for column in range(menu.col_count):
 
 #pprint.pp(menu_dictionary)
 
-
-class pizza:
-    pass    
+class pizza_obj:
+    """
+    Creates an instance of Pizza
+    """
+    def __init__(self, name, price, toppings):
+        self.name  = name
+        self.price = price
+        self.toppings = toppings
 
 class order:
     pass
@@ -60,7 +64,7 @@ def welcome():
 
 def show_menu():
     """
-    Function to print the whole menu read previously from google sheet
+    Print the whole menu read previously from google sheet and give option to select pizza
     """
     os.system('clear')
     print("\nHere our pizza menu:")
@@ -69,9 +73,31 @@ def show_menu():
         print(f"\n{i}: {menu_dictionary[i][0]}€")
         # Print all other list elements (ingredients/toppings)
         print(*menu_dictionary[i][1:], sep=", ")     
+    
+def select_pizza():
+    """
+    Function to select the pizza from Menu
+    """
+    while True:
+        selected_pizza = input("Please select the pizza you'd like to order: \n")
+        if selected_pizza in menu_dictionary or selected_pizza == "Extra Toppings":
+            break
+        else:
+            print("\nPlease check the pizza you'd like to order")
+    
+    pizza = pizza_obj(selected_pizza,menu_dictionary[selected_pizza][0],menu_dictionary[selected_pizza][1:])
+    #print("Selected pizza:")
+    #print(pizza.name)
+    #print(pizza.price)
+    #print(pizza.toppings)
+    return pizza
 
 def main():
-    customer=welcome()
+    """
+    Main function
+    """
+    customer = welcome()
     show_menu()
+    pizza = select_pizza()
 
 main()
