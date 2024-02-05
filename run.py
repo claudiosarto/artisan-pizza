@@ -103,6 +103,13 @@ def build_pizza():
             print("\nCannot find the pizza you typed, please try again\n")
 
     pizza = pizza_obj(selected_pizza,menu_dictionary[selected_pizza][0],menu_dictionary[selected_pizza][1:])
+    print("Selected pizza:")
+    print(pizza)
+    print(pizza.name)
+    print(pizza.price)
+    print(pizza.toppings)
+    print(pizza.base)
+    print(pizza.size)
     return pizza
 
 
