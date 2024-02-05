@@ -32,10 +32,11 @@ class pizza_obj:
     """
     Creates an instance of Pizza
     """
-    def __init__(self, name, price, toppings, size="standard", base="normal"):
+    def __init__(self, name, price, toppings, extratoppings=[], size="standard", base="normal"):
         self.name  = name
         self.price = price
         self.toppings = toppings
+        self.extratoppings = extratoppings
         self.size = size
         self.base = base
 
@@ -115,6 +116,7 @@ def build_pizza():
 
     pizza = pizza_obj(selected_pizza,menu_dictionary[selected_pizza][0],menu_dictionary[selected_pizza][1:])
     pizza.size = select_pizza_size()
+
     print("Selected pizza:")
     pprint.pprint(vars(pizza))
     return pizza
