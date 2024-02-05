@@ -32,10 +32,12 @@ class pizza_obj:
     """
     Creates an instance of Pizza
     """
-    def __init__(self, name, price, toppings):
+    def __init__(self, name, price, toppings, size="standard", base="normal"):
         self.name  = name
         self.price = price
         self.toppings = toppings
+        self.size = size
+        self.base = base
 
 class order:
     pass
@@ -73,8 +75,23 @@ def show_menu():
         print(f"\n{i}: {menu_dictionary[i][0]}€")
         # Print all other list elements (ingredients/toppings)
         print(*menu_dictionary[i][1:], sep=", ")     
-    
-def select_pizza():
+
+
+def select_pizza_size():
+    """
+    Function to select the pizza size
+    """
+    while True:
+        pizza_base = input("Please select the pizza you'd like to order: \n")
+        if selected_pizza in menu_dictionary or selected_pizza == "Extra Toppings":
+            break
+        else:
+            print("\nInvalid input, please try again\n")
+
+    return pizza_base
+
+
+def build_pizza():
     """
     Function to select the pizza from Menu
     """
@@ -83,14 +100,11 @@ def select_pizza():
         if selected_pizza in menu_dictionary or selected_pizza == "Extra Toppings":
             break
         else:
-            print("\nPlease check the pizza you'd like to order")
-    
+            print("\nCannot find the pizza you typed, please try again\n")
+
     pizza = pizza_obj(selected_pizza,menu_dictionary[selected_pizza][0],menu_dictionary[selected_pizza][1:])
-    #print("Selected pizza:")
-    #print(pizza.name)
-    #print(pizza.price)
-    #print(pizza.toppings)
     return pizza
+
 
 def main():
     """
@@ -98,6 +112,7 @@ def main():
     """
     customer = welcome()
     show_menu()
-    pizza = select_pizza()
+    pizza = build_pizza()
+
 
 main()
