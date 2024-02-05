@@ -93,7 +93,7 @@ def select_pizza_size():
 
 def build_pizza():
     """
-    Function to select the pizza from Menu
+    Function to select and build the pizza from Menu
     """
     while True:
         selected_pizza = input("Please select the pizza you'd like to order: \n")
@@ -104,19 +104,14 @@ def build_pizza():
 
     pizza = pizza_obj(selected_pizza,menu_dictionary[selected_pizza][0],menu_dictionary[selected_pizza][1:])
     print("Selected pizza:")
-    print(pizza)
-    print(pizza.name)
-    print(pizza.price)
-    print(pizza.toppings)
-    print(pizza.base)
-    print(pizza.size)
+    pprint.pprint(vars(pizza))
     return pizza
-
 
 def main():
     """
     Main function
     """
+    os.system('clear')
     customer = welcome()
     show_menu()
     pizza = build_pizza()
