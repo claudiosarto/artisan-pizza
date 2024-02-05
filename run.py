@@ -1,4 +1,5 @@
 import pprint
+import os
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -58,10 +59,16 @@ def welcome():
     return customerdata
 
 def show_menu():
-    print("\nHere our pizza list and related included toppings:")
+    """
+    Function to print the whole menu read previously from google sheet
+    """
+    os.system('clear')
+    print("\nHere our pizza menu:")
     for i in menu_dictionary:
-        print(f"\n{i}: ")
-        print(*menu_dictionary[i], sep=", ")
+        # Print header from google sheet and first list element, containing the price
+        print(f"\n{i}: {menu_dictionary[i][0]}€")
+        # Print all other list elements (ingredients/toppings)
+        print(*menu_dictionary[i][1:], sep=", ")     
 
 def main():
     customer=welcome()
