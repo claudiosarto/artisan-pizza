@@ -72,7 +72,7 @@ def show_menu():
     print("\nHere our pizza menu:")
     for i in menu_dictionary:
         # Print header from google sheet and first list element, containing the price
-        print(f"\n{i}: {menu_dictionary[i][0]}€")
+        print(f"\n{i}: {menu_dictionary[i][0]}€ - ", end='')
         # Print all other list elements (ingredients/toppings)
         print(*menu_dictionary[i][1:], sep=", ")     
 
@@ -96,7 +96,7 @@ def build_pizza():
     Function to select and build the pizza from Menu
     """
     while True:
-        selected_pizza = input("Please select the pizza you'd like to order: \n")
+        selected_pizza = input("\nPlease select the pizza you'd like to order: \n")
         if selected_pizza in menu_dictionary or selected_pizza == "Extra Toppings":
             break
         else:
