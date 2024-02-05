@@ -28,8 +28,9 @@ class pizza_obj:
     """
     Creates an instance of Pizza
     """
-    def __init__(self, name, price, toppings, extratoppings=[],
+    def __init__(self, index, name, price, toppings, extratoppings=[],
                  size="standard", base="normal"):
+        self.index = index
         self.name = name
         self.price = float(price)
         self.toppings = toppings
@@ -77,12 +78,12 @@ def show_menu(menu_dict):
         Print header from google sheet and first list element,
         containing the price
         """
-        if i != "Extra Toppings":
-            print(f"\n{i}: {menu_dict[i][0]}€ - ", end='')
+        if menu_dict[i][0] != "Extra Toppings":
+            print(f"\n{i}: {menu_dict[i][0]} - {menu_dict[i][1]}€ - ", end='')
             """
             Print all other list elements (ingredients/toppings)
             """
-            print(*menu_dict[i][1:], sep=", ")
+            print(*menu_dict[i][2:], sep=", ")
 
 
 def select_pizza_base(pizza):
@@ -137,7 +138,8 @@ def select_pizza_size(pizza):
                 print("Invalid input, please try again\n")
 
 
-def add_extra_toppings(pizza):
+def add_extra_toppings(pizza,extratoppings):
+
     pass
 
 
@@ -148,12 +150,11 @@ def build_pizza(menu_dict):
     while True:
         selected_pizza = input("\nPlease select the pizza to order: \n")
         print("\n")
-        if selected_pizza in menu_dict or selected_pizza == "Extra Toppings":
+        if selected_pizza in menu_dict:
             break
         else:
             print("\nCannot find your pizza in the menu, please try again\n")
-
-    pizza = pizza_obj(selected_pizza, menu_dict[selected_pizza][0],menu_dict[selected_pizza][1:])
+    pizza = pizza_obj(selected_pizza, menu_dict[selected_pizza][0],menu_dict[selected_pizza][1],menu_dict[selected_pizza][2:])
     """ 
     print("Build pizza pizza:")
     pprint.pprint(vars(pizza))
@@ -161,7 +162,6 @@ def build_pizza(menu_dict):
     select_pizza_base(pizza)
     select_pizza_size(pizza)
     return pizza
-
 
 def main():
     """
@@ -177,3 +177,7 @@ def main():
 
 
 main()
+"""
+menu_test = read_menu()
+pprint.pprint(menu_test)
+"""
