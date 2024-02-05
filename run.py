@@ -21,20 +21,21 @@ menu_dict = {}
 
 # Add Header as key and remaining items as list of values
 for column in range(menu.col_count):
-    #print(column)
-    #print(menu.col_values(column+1)[0]) #key value
-    #print(menu.col_values(column+1)[1:]) #key list
+    """print(column)
+    print(menu.col_values(column+1)[0]) #key value
+    print(menu.col_values(column+1)[1:]) #key list"""
     menu_dict[menu.col_values(column+1)[0]] = menu.col_values(column+1)[1:]
 
-#pprint.pp(menu_dictionary)
+"""pprint.pp(menu_dict)"""
 
 
 class pizza_obj:
     """
     Creates an instance of Pizza
     """
-    def __init__(self, name, price, toppings, extratoppings=[], size="standard", base="normal"):
-        self.name  = name
+    def __init__(self, name, price, toppings, extratoppings=[],
+                 size="standard", base="normal"):
+        self.name = name
         self.price = price
         self.toppings = toppings
         self.extratoppings = extratoppings
@@ -50,36 +51,42 @@ def welcome():
     """
     Welcome function to gather Customer Name
     """
-    print("Welcome to Artisan-Pizza - Where Artisan Craftsmanship Meets Your Cravings!")
-    customerdata=["name","number"]
+    print("Welcome to Artisan-Pizza")
+    print("Where Artisan Craftsmanship Meets Your Cravings!")
+    customerdata = ["name", "number"]
     while True:
         customerdata[0] = input("Please enter your name: \n")
         if customerdata[0].isalpha():
             break
         else:
-            print("Please check your name, only [A-Z] characters are accepted")
+            print("Please check the input, only [A-Z] characters are accepted")
 
     while True:
         customerdata[1] = input("Please enter your phone number: \n")
         if customerdata[1].isdigit():
             break
         else:
-            print("Please check your phone number, only [0-9] characters are accepted")    
-    
+            print("Please check the input, only [0-9] characters are accepted")
     return customerdata
 
 
 def show_menu():
     """
-    Print the whole menu read previously from google sheet and give option to select pizza
+    Print the whole menu read previously from google sheet and give option
+    to select pizza
     """
     os.system('clear')
     print("\nHere our pizza menu:")
-    for i in menu_dictionary:
-        # Print header from google sheet and first list element, containing the price
-        print(f"\n{i}: {menu_dictionary[i][0]}€ - ", end='')
-        # Print all other list elements (ingredients/toppings)
-        print(*menu_dictionary[i][1:], sep=", ")     
+    for i in menu_dict:
+        """
+        Print header from google sheet and first list element,
+        containing the price
+        """
+        print(f"\n{i}: {menu_dict[i][0]}€ - ", end='')
+        """
+        Print all other list elements (ingredients/toppings)
+        """
+        print(*menu_dict[i][1:], sep=", ")
 
 
 def select_pizza_base():
@@ -100,7 +107,7 @@ def select_pizza_base():
                 return "Glutenfree"
                 break
             case "w":
-                return "Whole Wheat"  
+                return "Whole Wheat"
                 break
             case _:
                 print("Invalid input, please try again\n")
@@ -124,7 +131,7 @@ def select_pizza_size():
                 return "Large"
                 break
             case "xl":
-                return "Extra Large"  
+                return "Extra Large"
                 break
             case _:
                 print("Invalid input, please try again\n")
@@ -135,18 +142,17 @@ def build_pizza():
     Function to select and build the pizza from Menu
     """
     while True:
-        selected_pizza = input("\nPlease select the pizza you'd like to order: \n")
+        selected_pizza = input("\nPlease select the pizza to order: \n")
         print("\n")
-        if selected_pizza in menu_dictionary or selected_pizza == "Extra Toppings":
+        if selected_pizza in menu_dict or selected_pizza == "Extra Toppings":
             break
         else:
             print("\nCannot find your pizza in the menu, please try again\n")
 
-    pizza = pizza_obj(selected_pizza, menu_dictionary[selected_pizza][0], menu_dictionary[selected_pizza][1:])
+    pizza = pizza_obj(selected_pizza, menu_dict[selected_pizza][0],
+                      menu_dict[selected_pizza][1:])
     pizza.base = select_pizza_base()
     pizza.size = select_pizza_size()
-
-
     print("Selected pizza:")
     pprint.pprint(vars(pizza))
     return pizza
