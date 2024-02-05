@@ -82,11 +82,12 @@ def show_menu():
         Print header from google sheet and first list element,
         containing the price
         """
-        print(f"\n{i}: {menu_dict[i][0]}€ - ", end='')
-        """
-        Print all other list elements (ingredients/toppings)
-        """
-        print(*menu_dict[i][1:], sep=", ")
+        if i != "Extra Toppings":
+            print(f"\n{i}: {menu_dict[i][0]}€ - ", end='')
+            """
+            Print all other list elements (ingredients/toppings)
+            """
+            print(*menu_dict[i][1:], sep=", ")
 
 
 def select_pizza_base(pizza):
@@ -141,6 +142,10 @@ def select_pizza_size(pizza):
                 print("Invalid input, please try again\n")
 
 
+def add_extra_toppings(pizza):
+    pass
+
+
 def build_pizza():
     """
     Function to select and build the pizza from Menu
@@ -156,10 +161,9 @@ def build_pizza():
     pizza = pizza_obj(selected_pizza, menu_dict[selected_pizza][0],
                       menu_dict[selected_pizza][1:])
     pizza.base = select_pizza_base(pizza)
-    pizza.size = select_pizza_size(pizza)
-    print("Selected pizza:")
-    pprint.pprint(vars(pizza))
+    pizza.size = select_pizza_size(pizza) 
     return pizza
+
 
 
 def main():
@@ -170,6 +174,8 @@ def main():
     customer = welcome()
     show_menu()
     pizza = build_pizza()
+    print("Selected pizza:")
+    pprint.pprint(vars(pizza))
 
 
 main()
