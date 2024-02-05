@@ -36,7 +36,7 @@ class pizza_obj:
     def __init__(self, name, price, toppings, extratoppings=[],
                  size="standard", base="normal"):
         self.name = name
-        self.price = price
+        self.price = float(price)
         self.toppings = toppings
         self.extratoppings = extratoppings
         self.size = size
@@ -89,7 +89,7 @@ def show_menu():
         print(*menu_dict[i][1:], sep=", ")
 
 
-def select_pizza_base():
+def select_pizza_base(pizza):
     """
     Function to select the pizza base
     """
@@ -104,10 +104,12 @@ def select_pizza_base():
                 return "Normal"
                 break
             case "g":
-                return "Glutenfree"
+                pizza.base = "Glutenfree"
+                pizza.price +=2.5
                 break
             case "w":
-                return "Whole Wheat"
+                pizza.base = "Whole Wheat"
+                pizza.price +=1.5
                 break
             case _:
                 print("Invalid input, please try again\n")
@@ -151,7 +153,7 @@ def build_pizza():
 
     pizza = pizza_obj(selected_pizza, menu_dict[selected_pizza][0],
                       menu_dict[selected_pizza][1:])
-    pizza.base = select_pizza_base()
+    pizza.base = select_pizza_base(pizza)
     pizza.size = select_pizza_size()
     print("Selected pizza:")
     pprint.pprint(vars(pizza))
