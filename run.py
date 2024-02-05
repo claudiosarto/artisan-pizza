@@ -115,7 +115,7 @@ def select_pizza_base(pizza):
                 print("Invalid input, please try again\n")
 
 
-def select_pizza_size():
+def select_pizza_size(pizza):
     """
     Function to select the pizza size
     """
@@ -127,13 +127,15 @@ def select_pizza_size():
         pizza_size = input("[S/L/XL]): \n").lower()
         match pizza_size:
             case "s":
-                return "Standard"
+                pizza.size = "Standard"                
                 break
             case "l":
-                return "Large"
+                pizza.size = "Large"
+                pizza.price +=1                
                 break
             case "xl":
-                return "Extra Large"
+                pizza.size = "Extra Large"
+                pizza.price +=2                   
                 break
             case _:
                 print("Invalid input, please try again\n")
@@ -154,7 +156,7 @@ def build_pizza():
     pizza = pizza_obj(selected_pizza, menu_dict[selected_pizza][0],
                       menu_dict[selected_pizza][1:])
     pizza.base = select_pizza_base(pizza)
-    pizza.size = select_pizza_size()
+    pizza.size = select_pizza_size(pizza)
     print("Selected pizza:")
     pprint.pprint(vars(pizza))
     return pizza
