@@ -82,14 +82,21 @@ def select_pizza_size():
     Function to select the pizza size
     """
     while True:
-        pizza_base = input("Please select the pizza you'd like to order: \n")
-        if selected_pizza in menu_dictionary or selected_pizza == "Extra Toppings":
+        print("Please select the pizza size: Standard/Large/Extra Large")
+        pizza_size = input("[S/L/XL]): \n").lower()
+        if pizza_size == "s" or pizza_size == "l" or pizza_size == "xl":
             break
         else:
             print("\nInvalid input, please try again\n")
-
-    return pizza_base
-
+    
+    match pizza_size:
+        case "s":
+            return "Standard"
+        case "l":
+            return "Large"
+        case "xl":
+            return "Extra Large"
+        
 
 def build_pizza():
     """
@@ -103,6 +110,7 @@ def build_pizza():
             print("\nCannot find the pizza you typed, please try again\n")
 
     pizza = pizza_obj(selected_pizza,menu_dictionary[selected_pizza][0],menu_dictionary[selected_pizza][1:])
+    pizza.size = select_pizza_size()
     print("Selected pizza:")
     pprint.pprint(vars(pizza))
     return pizza
