@@ -102,11 +102,11 @@ def select_pizza_base(pizza):
                 break
             case "g":
                 pizza.base = "Glutenfree"
-                pizza.price +=2.5
+                pizza.price += 2.5
                 break
             case "w":
                 pizza.base = "Whole Wheat"
-                pizza.price +=1.5
+                pizza.price += 1.5
                 break
             case _:
                 print("Invalid input, please try again\n")
@@ -124,21 +124,21 @@ def select_pizza_size(pizza):
         pizza_size = input("[S/L/XL]): \n").lower()
         match pizza_size:
             case "s":
-                pizza.size = "Standard"                
+                pizza.size = "Standard"
                 break
             case "l":
                 pizza.size = "Large"
-                pizza.price +=1
+                pizza.price += 1
                 break
             case "xl":
                 pizza.size = "Extra Large"
-                pizza.price +=2                   
+                pizza.price += 2
                 break
             case _:
                 print("Invalid input, please try again\n")
 
 
-def add_extra_toppings(pizza,extratoppings):
+def add_extra_toppings(pizza, extratoppings):
 
     pass
 
@@ -153,15 +153,14 @@ def build_pizza(menu_dict):
         if selected_pizza in menu_dict and int(selected_pizza) != 7:
             break
         else:
-            print("\nCannot find your pizza in the menu, please try again\n")
-    pizza = pizza_obj(selected_pizza, menu_dict[selected_pizza][0],menu_dict[selected_pizza][1],menu_dict[selected_pizza][2:])
-    """ 
-    print("Build pizza pizza:")
-    pprint.pprint(vars(pizza))
-    """
+            print("Cannot find your pizza in the menu, please try again")
+    pizza = pizza_obj(selected_pizza, menu_dict[selected_pizza][0],
+                      menu_dict[selected_pizza][1],
+                      menu_dict[selected_pizza][2:])
     select_pizza_base(pizza)
     select_pizza_size(pizza)
     return pizza
+
 
 def main():
     """
