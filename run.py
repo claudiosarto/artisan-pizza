@@ -148,17 +148,20 @@ def build_pizza(menu_dict):
     Function to select and build the pizza from Menu
     """
     while True:
-        selected_pizza = input("\nPlease select the pizza to order: \n")
+        pizza_choice = input("\nPlease select the pizza to order: \n")
         print("\n")
-        if selected_pizza in menu_dict and int(selected_pizza) != 7:
+        if pizza_choice in menu_dict and int(pizza_choice) != len(menu_dict):
             break
         else:
             print("Cannot find your pizza in the menu, please try again")
-    pizza = pizza_obj(selected_pizza, menu_dict[selected_pizza][0],
-                      menu_dict[selected_pizza][1],
-                      menu_dict[selected_pizza][2:])
+    pizza = pizza_obj(pizza_choice, menu_dict[pizza_choice][0],
+                      menu_dict[pizza_choice][1],
+                      menu_dict[pizza_choice][2:])
     select_pizza_base(pizza)
     select_pizza_size(pizza)
+    """Extra toppings position is in the last colum of spreadsheet"""
+    extra_toppings = menu_dict[str(len(menu_dict))]
+    #add_extra_toppings(pizza,menu_dict.)
     return pizza
 
 
