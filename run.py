@@ -150,7 +150,7 @@ def build_pizza(menu_dict):
     while True:
         selected_pizza = input("\nPlease select the pizza to order: \n")
         print("\n")
-        if selected_pizza in menu_dict:
+        if selected_pizza in menu_dict and int(selected_pizza) != 7:
             break
         else:
             print("\nCannot find your pizza in the menu, please try again\n")
