@@ -43,8 +43,8 @@ class order_obj:
     """
     Creates an instance of Order
     """
-     def __init__(self, pizzalist, totalprice):
-        self.id = id
+    def __init__(self, pizzalist, totalprice):
+        #self.id = id
         self.pizzalist = pizzalist
         self.totalprice = float(totalprice)
 
@@ -208,7 +208,7 @@ def build_pizza(menu_dict):
     return pizza
 
 def build_order():
-    order = []
+    order = order_obj([],0)
     menu_dict = read_menu()
     while True:
         show_menu(menu_dict)
@@ -219,8 +219,11 @@ def build_order():
                 break
             else:
                 print("Invalid input, please try again\n")        
+        pizza_list = []
         for i in range(pizza_qty):
-            order.append(pizza)
+            pizza_list.append(pizza)
+            order.totalprice += pizza.price
+        order.pizzalist = pizza_list
         while True:
             another_pizza = (input("\nDo you want to add another pizza? [Y/N]\n").lower())
             match another_pizza:
@@ -238,9 +241,9 @@ def main():
     """
     os.system('clear')
     customer = welcome()
-    order = build_order()
+    customer_order = build_order()
     print("\n Main pprint order:")
-    for item in order:
-        pprint.pprint(vars(item))
+    pprint.pprint(vars(customer_order))
+
 
 main()
