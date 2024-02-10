@@ -154,11 +154,8 @@ def add_extra_toppings(pizza, extratoppings):
         match extra_toppings_choice:
             case "y":
                 print("Extra toppings available:")
-                i = 0
-                while i < len(toppings_list):
-                    print (f"{i+1} - {toppings_list[i]}")
-                    i +=1  
-
+                for (i, topping) in enumerate(toppings_list,start=1):
+                    print (f"{i} - {topping}")
                 break
             case "n":
                 break
