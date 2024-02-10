@@ -148,17 +148,30 @@ def add_extra_toppings(pizza, extratoppings):
     toppings_list = extratoppings[2:]
     """Removing existing toppings from the list"""
     toppings_list = [i for i in toppings_list if i not in pizza.toppings]
-    #pprint.pprint(f"List with price: {extratoppings[1]}")
     while True:
-        extra_toppings_choice = input(f"Do you want to add extra toppings"
-                                      f"for {extratoppings[1]}€ each (Y/N)?")
+        extra_toppings_choice = input(f"Do you want to add extra toppings "
+                                      f"for {extratoppings[1]}€ each (Y/N)?\n")
         extra_toppings_choice.lower()
         match extra_toppings_choice:
             case "y":
                 print("Extra toppings available:")
                 for (i, topping) in enumerate(toppings_list, start=1):
                     print(f"{i} - {topping}")
-                break
+                while True:
+                    topping_choice = int(input("\nSelect extra topping:\n"))-1
+                    print("\n")
+                    if (topping_choice < len(toppings_list)
+                        and topping_choice >= 0):
+                        break
+                    else:
+                        print("Invalid input, please try again\n")
+                pizza.extratoppings.append(toppings_list[topping_choice])
+                pizza.price = round(pizza.price + 1.2, 2)
+                toppings_list.pop(topping_choice)
+                """Check if extra topping list is empty """
+                if toppings_list == []:
+                    print("No more toppings available")
+                    break
             case "n":
                 break
             case _:
