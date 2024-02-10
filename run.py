@@ -38,6 +38,17 @@ class pizza_obj:
         self.size = size
         self.base = base
 
+
+class order_obj:
+    """
+    Creates an instance of Order
+    """
+     def __init__(self, pizzalist, totalprice):
+        self.id = id
+        self.pizzalist = pizzalist
+        self.totalprice = float(totalprice)
+
+
 def welcome():
     """
     Welcome function to gather Customer Name
