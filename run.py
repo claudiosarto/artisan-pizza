@@ -161,7 +161,7 @@ def add_extra_toppings(pizza, extratoppings):
                     topping_choice = int(input("\nSelect extra topping:\n"))-1
                     print("\n")
                     if (topping_choice < len(toppings_list)
-                        and topping_choice >= 0):
+                            and topping_choice >= 0):
                         break
                     else:
                         print("Invalid input, please try again\n")
