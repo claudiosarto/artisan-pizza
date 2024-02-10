@@ -90,6 +90,7 @@ def select_pizza_base(pizza):
     """
     Function to select the pizza base
     """
+    os.system('clear')
     while True:
         print("Please select the pizza base: ")
         print('Normal Dough')
@@ -116,6 +117,7 @@ def select_pizza_size(pizza):
     """
     Function to select the pizza size
     """
+    os.system('clear')
     while True:
         print("Please select the pizza size: ")
         print('Standard - 10"')
@@ -139,8 +141,24 @@ def select_pizza_size(pizza):
 
 
 def add_extra_toppings(pizza, extratoppings):
-
-    pass
+    """
+    Function to add extra toppings to pizza.extratoppings attribute
+    """
+    os.system('clear')
+    topping_list = extratoppings[2:]
+    #pprint.pprint(f"List with price: {topping_list}")  
+    #pprint.pprint(f"List with price: {extratoppings[1]}")
+    while True:
+        extra_toppings_choice = input(f"\nDo you want to add extra toppings for {extratoppings[1]}€ each (Y/N)? \n").lower()
+        match extra_toppings_choice:
+            case "y":
+                print("yes")
+                break
+            case "n":
+                print("no")
+                break
+            case _:
+                print("Invalid input, please try again\n")        
 
 
 def build_pizza(menu_dict):
@@ -159,9 +177,10 @@ def build_pizza(menu_dict):
                       menu_dict[pizza_choice][2:])
     select_pizza_base(pizza)
     select_pizza_size(pizza)
-    """Extra toppings position is in the last colum of spreadsheet"""
+    """Creating list with Extra toppings.
+    position is in the last colum of spreadsheet"""
     extra_toppings = menu_dict[str(len(menu_dict))]
-    #add_extra_toppings(pizza,menu_dict.)
+    add_extra_toppings(pizza,extra_toppings)
     return pizza
 
 
