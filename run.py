@@ -202,9 +202,15 @@ def build_order():
     while True:
         show_menu(menu_dict)
         pizza = build_pizza(menu_dict)
-        pizza_qty = int(input("\nHow many of these pizza [1-5]?:\n"))
+        while True:
+            pizza_qty = int(input("\nHow many of these pizza [1-5]?:\n"))
+            if pizza_qty >=1 and pizza_qty <=5:
+                break
+            else:
+                print("Invalid input, please try again\n")        
         for i in range(pizza_qty):
             order.append(pizza)
+                
         break
     return order
 
