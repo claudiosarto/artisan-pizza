@@ -145,22 +145,24 @@ def add_extra_toppings(pizza, extratoppings):
     Function to add extra toppings to pizza.extratoppings attribute
     """
     os.system('clear')
-    toppings_list = extratoppings[2:] 
+    toppings_list = extratoppings[2:]
     """Removing existing toppings from the list"""
     toppings_list = [i for i in toppings_list if i not in pizza.toppings]
     #pprint.pprint(f"List with price: {extratoppings[1]}")
     while True:
-        extra_toppings_choice = input(f"\nDo you want to add extra toppings for {extratoppings[1]}€ each (Y/N)? \n").lower()
+        extra_toppings_choice = input(f"Do you want to add extra toppings"
+                                      f"for {extratoppings[1]}€ each (Y/N)?")
+        extra_toppings_choice.lower()
         match extra_toppings_choice:
             case "y":
                 print("Extra toppings available:")
-                for (i, topping) in enumerate(toppings_list,start=1):
-                    print (f"{i} - {topping}")
+                for (i, topping) in enumerate(toppings_list, start=1):
+                    print(f"{i} - {topping}")
                 break
             case "n":
                 break
             case _:
-                print("Invalid input, please try again\n")        
+                print("Invalid input, please try again\n")
 
 
 def build_pizza(menu_dict):
@@ -182,7 +184,7 @@ def build_pizza(menu_dict):
     """Creating list with Extra toppings.
     position is in the last colum of spreadsheet"""
     extra_toppings_list = menu_dict[str(len(menu_dict))]
-    add_extra_toppings(pizza,extra_toppings_list)
+    add_extra_toppings(pizza, extra_toppings_list)
     return pizza
 
 
