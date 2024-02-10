@@ -210,9 +210,16 @@ def build_order():
                 print("Invalid input, please try again\n")        
         for i in range(pizza_qty):
             order.append(pizza)
-                
-        break
-    return order
+        while True:
+            another_pizza = (input("\nDo you want to add another pizza? [Y/N]\n").lower())
+            match another_pizza:
+                case "y":
+                    break
+                case "n":
+                    return order
+                case _:
+                    print("Invalid input, please try again\n")
+
 
 def main():
     """
