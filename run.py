@@ -38,11 +38,6 @@ class pizza_obj:
         self.size = size
         self.base = base
 
-
-class order:
-    pass
-
-
 def welcome():
     """
     Welcome function to gather Customer Name
@@ -154,6 +149,7 @@ def add_extra_toppings(pizza, extratoppings):
         extra_toppings_choice.lower()
         match extra_toppings_choice:
             case "y":
+                os.system('clear')
                 print("Extra toppings available:")
                 for (i, topping) in enumerate(toppings_list, start=1):
                     print(f"{i} - {topping}")
@@ -200,6 +196,17 @@ def build_pizza(menu_dict):
     add_extra_toppings(pizza, extra_toppings_list)
     return pizza
 
+def build_order():
+    order = []
+    menu_dict = read_menu()
+    while True:
+        show_menu(menu_dict)
+        pizza = build_pizza(menu_dict)
+        pizza_qty = int(input("\nHow many of these pizza [1-5]?:\n"))
+        for i in range(pizza_qty):
+            order.append(pizza)
+        break
+    return order
 
 def main():
     """
@@ -207,15 +214,9 @@ def main():
     """
     os.system('clear')
     customer = welcome()
-    menu_dict = read_menu()
-    show_menu(menu_dict)
-    pizza = build_pizza(menu_dict)
-    print("\n Main pprint pizza:")
-    pprint.pprint(vars(pizza))
-
+    order = build_order()
+    print("\n Main pprint order:")
+    for item in order:
+        pprint.pprint(vars(item))
 
 main()
-"""
-menu_test = read_menu()
-pprint.pprint(menu_test)
-"""
