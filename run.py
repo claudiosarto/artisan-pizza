@@ -234,7 +234,7 @@ def build_order():
                 else:
                     print("Invalid input, please try again\n")
             except ValueError:
-                    print("Invalid input, only numbers allowed\n")
+                print("Invalid input, only numbers allowed\n")
         pizza_total = [pizza_qty, pizza]
         order.pizzalist.append(pizza_total)
         order.totalprice = round(order.totalprice + pizza_qty*pizza.price, 2)
