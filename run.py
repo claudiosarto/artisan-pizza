@@ -170,13 +170,16 @@ def add_extra_toppings(pizza, extratoppings):
                 for (i, topping) in enumerate(toppings_list, start=1):
                     print(f"{i} - {topping}")
                 while True:
-                    topping_choice = int(input("\nSelect extra topping:\n"))-1
-                    print("\n")
-                    if (topping_choice < len(toppings_list)
-                            and topping_choice >= 0):
-                        break
-                    else:
-                        print("Invalid input, please try again\n")
+                    try:
+                        topping_choice = int(input(f"\nSelect extra topping [1-{len(toppings_list)}]:\n"))-1
+                        print("\n")
+                        if (topping_choice < len(toppings_list)
+                                and topping_choice >= 0):
+                            break
+                        else:
+                            print("Invalid input, please try again\n")
+                    except ValueError:
+                        print("Invalid input, only numbers allowed\n")
                 pizza.extratoppings.append(toppings_list[topping_choice])
                 pizza.price = round(pizza.price + 1.2, 2)
                 toppings_list.pop(topping_choice)
