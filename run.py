@@ -208,24 +208,26 @@ def build_pizza(menu_dict):
     add_extra_toppings(pizza, extra_toppings_list)
     return pizza
 
+
 def build_order():
     orderid = (str(shortuuid.ShortUUID().random(length=12)).upper())
-    order = order_obj(orderid,[],0)
+    order = order_obj(orderid, [], 0)
     menu_dict = read_menu()
     while True:
         show_menu(menu_dict)
         pizza = build_pizza(menu_dict)
         while True:
             pizza_qty = int(input("\nHow many of these pizza [1-5]?:\n"))
-            if pizza_qty >=1 and pizza_qty <=5:
+            if pizza_qty >= 1 and pizza_qty <= 5:
                 break
             else:
-                print("Invalid input, please try again\n")        
+                print("Invalid input, please try again\n")
         for i in range(pizza_qty):
             order.pizzalist.append(pizza)
             order.totalprice += pizza.price
         while True:
-            another_pizza = (input("\nDo you want to add another pizza? [Y/N]\n").lower())
+            another_pizza = (input("\nDo you want to add"
+                                   "another pizza [Y/N]?\n").lower())
             match another_pizza:
                 case "y":
                     break
