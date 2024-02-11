@@ -69,10 +69,10 @@ def welcome():
 
     while True:
         customerdata[1] = input("Please enter your phone number: \n")
-        if customerdata[1].isdigit():
+        if customerdata[1].isdigit() and len(customerdata[1]) == 10:
             break
         else:
-            print("Please check the input, only [0-9] characters are accepted")
+            print("Phone number should be 10 numeric digits")
     return customerdata
 
 
