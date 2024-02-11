@@ -106,7 +106,7 @@ def select_pizza_base(pizza):
         pizza_base = input("[N/G/W]): \n").lower()
         match pizza_base:
             case "n":
-                pizza.base = "Normal"
+                pizza.base = "Normal Dough"
                 break
             case "g":
                 pizza.base = "Glutenfree"
@@ -223,9 +223,9 @@ def build_order():
                 break
             else:
                 print("Invalid input, please try again\n")
-        for i in range(pizza_qty):
-            order.pizzalist.append(pizza)
-            order.totalprice = round(order.totalprice + pizza.price,2)
+        pizza_total = [pizza_qty,pizza]
+        order.pizzalist.append(pizza_total)
+        order.totalprice = round(order.totalprice + pizza_qty*pizza.price,2)
         while True:
             another_pizza = (input("\nDo you want to add "
                                    "another pizza [Y/N]?\n").lower())
@@ -237,20 +237,22 @@ def build_order():
                 case _:
                     print("Invalid input, please try again\n")
 
+
 def show_order(customer_info, complete_order):
-    print(f"Dear {customer_info[0]} - Phone n.: {customer_info[1]}")
+    os.system('clear')
+    print(f"Dear {customer_info[0]} - Phone n.: {customer_info[1]}\n")
     print("Here your order details:")
     print(f"Order ID: {complete_order.id}")
-    print("\nHere all your pizza:")
+    print("\nPizza in this order:")
     for pizza in complete_order.pizzalist:
-        print(f"{pizza.name} - {pizza.size} {pizza.base}")
-        toppings_str = ', '.join(pizza.toppings)
+        print(f"{pizza[1].name} - {pizza[1].size} {pizza[1].base}")
+        toppings_str = ', '.join(pizza[1].toppings)
         print(f"Toppings: {toppings_str}")
-        print(', '.join(pizza.toppings))
-        if (pizza.extratoppings != []):
-            extra_toppings_str = ', '.join(pizza.extratoppings)
+        if (pizza[1].extratoppings != []):
+            extra_toppings_str = ', '.join(pizza[1].extratoppings)
             print(f"Extra toppings: {extra_toppings_str}")
-        print(f"Price: {pizza.price}€\n")
+        print(f"Price: {pizza[1].price}€ (each)")
+        print(f"Quantity: {pizza[0]}\n")
     print(f"Order Total: {complete_order.totalprice}€")
 
 def main():
