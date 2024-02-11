@@ -2,6 +2,7 @@ import pprint
 import os
 import gspread
 import shortuuid
+import time
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -256,17 +257,36 @@ def show_order(customer_info, complete_order):
     print(f"Order Total: {complete_order.totalprice}€")
 
 
+def confirm_order():
+    while True:
+        confirm_order= input("\nConfirm the order [Y/N]:").lower()
+        match confirm_order:
+            case "y":
+                print("\nOrder confirmed!")
+                print("You will be able to place another order in 5 seconds")
+                time.sleep(5)
+                break
+            case "n":
+                print("\nOrder canceled, starting over")
+                time.sleep(3)
+                break
+            case _:
+                print("Invalid input, please try again\n")
+
+
 def main():
     """
     Main function
     """
-    os.system('clear')
-    customer = welcome()
-    customer_order = build_order()
-    show_order(customer, customer_order)
+    while True:
+        os.system('clear')
+        customer = welcome()
+        customer_order = build_order()
+        show_order(customer, customer_order)
+        confirm_order()
+
     #print("\n Main pprint order:")
     #pprint.pprint(vars(customer_order))
     #pprint.pprint(customer_order.pizzalist)
-
 
 main()
