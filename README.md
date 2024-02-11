@@ -1,32 +1,38 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Artisan Pizza
 
-Welcome,
+Artisan pizza is a place where Pizza Chef prepare your favorite original Italian pizza, using the most delicious ingredients. 
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+This ordering system app will help the users selecting from a pizza menu or customize a pizza. 
+The goal for the owner is to have access to the menu via Google Sheet as well as see all the orders placed there on a simple and intuitive GUI.
 
-## Reminders
+![Initial Page](/docs/artisan-pizza-homepage.png)
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+[Visit the live website link](https://artisanpizza-e12e243b6fd4.herokuapp.com/)
 
-## Creating the Heroku app
+# UX
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+There are a lot of ways to approach an ordering system for a Pizza restaurant below you can find the considerations I put together.
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## User stories
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+As pizza restaurant customer:
+- Provide Name and Phone number 
+- View the menu
+- Choose the pizza without much typing
+- Choose the pizza base/dough and size
+- Add extra toppings if I'd like to customize my pizza
+- Add the pizza to my order
+- Being able to add multiple pizza in a single order
+- View the whole order once I completed
+- Get an order reference ID
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+As pizza restaurant ower: 
+- Provide an easy way for customers to order pizza
+- Being able to modify Menu in an easy way via a GUI like Google Sheet
+- Being able to see all the placed orders
 
-Connect your GitHub repository and deploy as normal.
+## App Workflow
 
-## Constraints
+I used [Diagrams.net](https://app.diagrams.net/) to create the application worlfow to have a guideline in terms of which functions I had to implement. Almost every block correspond to a defined function.
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
----
-
-Happy coding!
+![Workflow](/docs/artisan-pizza-workflow-diagram.png)
