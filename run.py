@@ -268,7 +268,7 @@ def show_order(customer_info, complete_order):
 
 def save_order(customer_info, complete_order):
     """
-    Function to collect customer and order info and upload 
+    Function to collect customer and order info and upload
     on google sheet
     """
     orders_sheet = SHEET.worksheet('orders')
