@@ -152,6 +152,7 @@ def add_extra_toppings(pizza, extratoppings):
     Function to add extra toppings to pizza.extratoppings attribute
     """
     os.system('clear')
+    pizza.extratoppings = []
     toppings_list = extratoppings[2:]
     """Removing existing toppings from the list"""
     toppings_list = [i for i in toppings_list if i not in pizza.toppings]
@@ -241,7 +242,13 @@ def show_order(customer_info, complete_order):
     print("Here your order details:")
     print(f"Order ID: {complete_order.id}")
     for pizza in complete_order.pizzalist:
-        pprint.pprint(pizza)
+        print(f"{pizza.name} - {pizza.size} {pizza.base}")
+        print(f"Toppings: {pizza.toppings}")
+        if (pizza.extratoppings != []):
+            print(f"Extra toppings: {pizza.extratoppings}")
+        print(f"Price: {pizza.price}€\n")
+        #pprint.pprint(vars(pizza))
+    print(f"\nTotal order price: {complete_order.totalprice}€")
 
 def main():
     """
