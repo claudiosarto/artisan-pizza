@@ -261,13 +261,19 @@ def show_order(customer_info, complete_order):
         print(f"Quantity: {pizza[0]}\n")
     print(f"Order Total: {complete_order.totalprice}€")
 
+def save_order(customer_info, complete_order):
+    print(customer_info[0])
+    print(complete_order.id)
+    print("Order received!")
 
-def confirm_order():
+def confirm_order(customer_info, complete_order):
     while True:
         confirm_order = input("\nConfirm the order [Y/N]:").lower()
         match confirm_order:
             case "y":
                 print("\nOrder confirmed!")
+                print("Sending Order to the Kitchen please wait...")
+                save_order(customer_info, complete_order)
                 print("You will be able to place another order in 5 seconds")
                 time.sleep(5)
                 break
@@ -288,7 +294,7 @@ def main():
         customer = welcome()
         customer_order = build_order()
         show_order(customer, customer_order)
-        confirm_order()
+        confirm_order(customer, customer_order)
 
 
 main()
