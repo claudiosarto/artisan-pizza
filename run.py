@@ -267,6 +267,11 @@ def show_order(customer_info, complete_order):
 
 
 def save_order(customer_info, complete_order):
+    """
+    Function to collect customer and order info and upload 
+    on google sheet
+    """
+    orders_sheet = SHEET.worksheet('orders')
     for pizza in complete_order.pizzalist:
         order_data = []
         order_data.append(complete_order.id)
@@ -280,8 +285,8 @@ def save_order(customer_info, complete_order):
         order_data.append(toppings_str)
         extra_toppings_str = ', '.join(pizza[1].extratoppings)
         order_data.append(extra_toppings_str)
-        print(order_data)
-    
+        order_data.append(pizza[0])
+        orders_sheet.append_row(order_data)
     print("Order received!")
 
 
