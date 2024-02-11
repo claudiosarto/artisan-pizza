@@ -52,6 +52,7 @@ class order_obj:
         self.totalprice = float(totalprice)
         self.date = date
 
+
 def welcome():
     """
     Welcome function to gather Customer Name
@@ -216,7 +217,7 @@ def build_order():
     orderid = (str(shortuuid.ShortUUID().random(length=12)).upper())
     date = datetime.now()
     date_string = date.strftime("%d-%b %Y %H:%M:%S")
-    order = order_obj(orderid, [], 0,date_string)
+    order = order_obj(orderid, [], 0, date_string)
     menu_dict = read_menu()
     while True:
         show_menu(menu_dict)
@@ -291,4 +292,3 @@ def main():
 
 
 main()
-
