@@ -199,7 +199,7 @@ def build_pizza(menu_dict):
     Function to select and build the pizza from Menu
     """
     while True:
-        pizza_choice = input(f"\nPlease select the pizza to order" 
+        pizza_choice = input(f"\nPlease select the pizza to build " 
                              f"[1-{len(menu_dict)-1}]: \n")
         print("\n")
         if pizza_choice in menu_dict and int(pizza_choice) != len(menu_dict):
@@ -295,6 +295,10 @@ def save_order(customer_info, complete_order):
 
 
 def confirm_order(customer_info, complete_order):
+    """
+    Function to confirm the order and upload the data
+    to google sheet
+    """
     while True:
         confirm_order = input("\nConfirm the order [Y/N]:").lower()
         match confirm_order:
