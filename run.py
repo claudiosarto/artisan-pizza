@@ -226,7 +226,7 @@ def build_order():
             order.pizzalist.append(pizza)
             order.totalprice = round(order.totalprice + pizza.price,2)
         while True:
-            another_pizza = (input("\nDo you want to add"
+            another_pizza = (input("\nDo you want to add "
                                    "another pizza [Y/N]?\n").lower())
             match another_pizza:
                 case "y":
@@ -236,6 +236,12 @@ def build_order():
                 case _:
                     print("Invalid input, please try again\n")
 
+def show_order(customer_info, complete_order):
+    print(f"Dear {customer_info[0]} - Phone n.: {customer_info[1]}")
+    print("Here your order details:")
+    print(f"Order ID: {complete_order.id}")
+    for pizza in complete_order.pizzalist:
+        pprint.pprint(pizza)
 
 def main():
     """
@@ -244,9 +250,9 @@ def main():
     os.system('clear')
     customer = welcome()
     customer_order = build_order()
-    print("\n Main pprint order:")
-    pprint.pprint(vars(customer_order))
-    pprint.pprint(customer_order.pizzalist)
-
+    show_order(customer, customer_order)
+    #print("\n Main pprint order:")
+    #pprint.pprint(vars(customer_order))
+    #pprint.pprint(customer_order.pizzalist)
 
 main()
