@@ -227,11 +227,14 @@ def build_order():
         show_menu(menu_dict)
         pizza = build_pizza(menu_dict)
         while True:
-            pizza_qty = int(input("\nHow many pizza like this [1-10]?:\n"))
-            if pizza_qty >= 1 and pizza_qty <= 10:
-                break
-            else:
-                print("Invalid input, please try again\n")
+            try:
+                pizza_qty = int(input("\nHow many pizza like this [1-10]?:\n"))
+                if pizza_qty >= 1 and pizza_qty <= 10:
+                    break
+                else:
+                    print("Invalid input, please try again\n")
+            except ValueError:
+                    print("Invalid input, only numbers allowed\n")
         pizza_total = [pizza_qty, pizza]
         order.pizzalist.append(pizza_total)
         order.totalprice = round(order.totalprice + pizza_qty*pizza.price, 2)
