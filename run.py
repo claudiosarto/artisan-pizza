@@ -259,7 +259,7 @@ def show_order(customer_info, complete_order):
 
 def confirm_order():
     while True:
-        confirm_order= input("\nConfirm the order [Y/N]:").lower()
+        confirm_order = input("\nConfirm the order [Y/N]:").lower()
         match confirm_order:
             case "y":
                 print("\nOrder confirmed!")
@@ -285,8 +285,5 @@ def main():
         show_order(customer, customer_order)
         confirm_order()
 
-    #print("\n Main pprint order:")
-    #pprint.pprint(vars(customer_order))
-    #pprint.pprint(customer_order.pizzalist)
 
 main()
