@@ -199,7 +199,7 @@ def build_pizza(menu_dict):
     Function to select and build the pizza from Menu
     """
     while True:
-        pizza_choice = input(f"\nPlease select the pizza to build " 
+        pizza_choice = input(f"\nPlease select the pizza to build "
                              f"[1-{len(menu_dict)-1}]: \n")
         print("\n")
         if pizza_choice in menu_dict and int(pizza_choice) != len(menu_dict):
