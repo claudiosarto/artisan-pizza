@@ -1,6 +1,7 @@
 import pprint
 import os
 import gspread
+import shortuuid
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -43,8 +44,8 @@ class order_obj:
     """
     Creates an instance of Order
     """
-    def __init__(self, pizzalist, totalprice):
-        #self.id = id
+    def __init__(self, id, pizzalist, totalprice):
+        self.id = id
         self.pizzalist = pizzalist
         self.totalprice = float(totalprice)
 
@@ -208,7 +209,8 @@ def build_pizza(menu_dict):
     return pizza
 
 def build_order():
-    order = order_obj([],0)
+    orderid = (str(shortuuid.ShortUUID().random(length=12)).upper())
+    order = order_obj(orderid,[],0)
     menu_dict = read_menu()
     while True:
         show_menu(menu_dict)
@@ -219,11 +221,9 @@ def build_order():
                 break
             else:
                 print("Invalid input, please try again\n")        
-        pizza_list = []
         for i in range(pizza_qty):
-            pizza_list.append(pizza)
+            order.pizzalist.append(pizza)
             order.totalprice += pizza.price
-        order.pizzalist = pizza_list
         while True:
             another_pizza = (input("\nDo you want to add another pizza? [Y/N]\n").lower())
             match another_pizza:
@@ -244,6 +244,7 @@ def main():
     customer_order = build_order()
     print("\n Main pprint order:")
     pprint.pprint(vars(customer_order))
+    pprint.pprint(customer_order.pizzalist)
 
 
 main()
