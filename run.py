@@ -224,7 +224,7 @@ def build_order():
                 print("Invalid input, please try again\n")
         for i in range(pizza_qty):
             order.pizzalist.append(pizza)
-            order.totalprice += pizza.price
+            order.totalprice = round(order.totalprice + pizza.price,2)
         while True:
             another_pizza = (input("\nDo you want to add"
                                    "another pizza [Y/N]?\n").lower())
