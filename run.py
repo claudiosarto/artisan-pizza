@@ -3,6 +3,7 @@ import os
 import gspread
 import shortuuid
 import time
+from datetime import datetime
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -45,11 +46,11 @@ class order_obj:
     """
     Creates an instance of Order
     """
-    def __init__(self, id, pizzalist, totalprice):
+    def __init__(self, id, pizzalist, totalprice, date):
         self.id = id
         self.pizzalist = pizzalist
         self.totalprice = float(totalprice)
-
+        self.date = date
 
 def welcome():
     """
@@ -213,7 +214,9 @@ def build_pizza(menu_dict):
 
 def build_order():
     orderid = (str(shortuuid.ShortUUID().random(length=12)).upper())
-    order = order_obj(orderid, [], 0)
+    date = datetime.now()
+    date_string = date.strftime("%d-%b %Y %H:%M:%S")
+    order = order_obj(orderid, [], 0,date_string)
     menu_dict = read_menu()
     while True:
         show_menu(menu_dict)
@@ -244,6 +247,7 @@ def show_order(customer_info, complete_order):
     print(f"Dear {customer_info[0]} - Phone n.: {customer_info[1]}\n")
     print("Here your order details:")
     print(f"Order ID: {complete_order.id}")
+    print(f"Time: {complete_order.date}")
     print("\nPizza in this order:\n")
     for pizza in complete_order.pizzalist:
         print(f"{pizza[1].name} - {pizza[1].size} - {pizza[1].base}")
@@ -287,3 +291,4 @@ def main():
 
 
 main()
+
