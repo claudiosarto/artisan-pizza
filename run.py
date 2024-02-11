@@ -223,9 +223,9 @@ def build_order():
                 break
             else:
                 print("Invalid input, please try again\n")
-        pizza_total = [pizza_qty,pizza]
+        pizza_total = [pizza_qty, pizza]
         order.pizzalist.append(pizza_total)
-        order.totalprice = round(order.totalprice + pizza_qty*pizza.price,2)
+        order.totalprice = round(order.totalprice + pizza_qty*pizza.price, 2)
         while True:
             another_pizza = (input("\nDo you want to add "
                                    "another pizza [Y/N]?\n").lower())
@@ -255,6 +255,7 @@ def show_order(customer_info, complete_order):
         print(f"Quantity: {pizza[0]}\n")
     print(f"Order Total: {complete_order.totalprice}€")
 
+
 def main():
     """
     Main function
@@ -266,5 +267,6 @@ def main():
     #print("\n Main pprint order:")
     #pprint.pprint(vars(customer_order))
     #pprint.pprint(customer_order.pizzalist)
+
 
 main()
