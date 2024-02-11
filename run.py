@@ -267,8 +267,21 @@ def show_order(customer_info, complete_order):
 
 
 def save_order(customer_info, complete_order):
-    print(customer_info[0])
-    print(complete_order.id)
+    for pizza in complete_order.pizzalist:
+        order_data = []
+        order_data.append(complete_order.id)
+        order_data.append(complete_order.date)
+        order_data.append(customer_info[0])
+        order_data.append(customer_info[1])
+        order_data.append(pizza[1].name)
+        order_data.append(pizza[1].size)
+        order_data.append(pizza[1].base)
+        toppings_str = ', '.join(pizza[1].toppings)
+        order_data.append(toppings_str)
+        extra_toppings_str = ', '.join(pizza[1].extratoppings)
+        order_data.append(extra_toppings_str)
+        print(order_data)
+    
     print("Order received!")
 
 
