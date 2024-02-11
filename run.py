@@ -243,15 +243,15 @@ def show_order(customer_info, complete_order):
     print(f"Dear {customer_info[0]} - Phone n.: {customer_info[1]}\n")
     print("Here your order details:")
     print(f"Order ID: {complete_order.id}")
-    print("\nPizza in this order:")
+    print("\nPizza in this order:\n")
     for pizza in complete_order.pizzalist:
-        print(f"{pizza[1].name} - {pizza[1].size} {pizza[1].base}")
+        print(f"{pizza[1].name} - {pizza[1].size} - {pizza[1].base}")
         toppings_str = ', '.join(pizza[1].toppings)
         print(f"Toppings: {toppings_str}")
         if (pizza[1].extratoppings != []):
             extra_toppings_str = ', '.join(pizza[1].extratoppings)
             print(f"Extra toppings: {extra_toppings_str}")
-        print(f"Price: {pizza[1].price}€ (each)")
+        print(f"Price: {pizza[1].price}€ each")
         print(f"Quantity: {pizza[0]}\n")
     print(f"Order Total: {complete_order.totalprice}€")
 
