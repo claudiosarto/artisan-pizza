@@ -171,8 +171,9 @@ def add_extra_toppings(pizza, extratoppings):
                     print(f"{i} - {topping}")
                 while True:
                     try:
-                        topping_choice = int(input(f"\nSelect extra topping [1-{len(toppings_list)}]:\n"))-1
-                        print("\n")
+                        topping_choice = int(input(f"\nSelect extra topping "
+                                                   f"[1-{len(toppings_list)}"
+                                                   f"]:\n"))-1
                         if (topping_choice < len(toppings_list)
                                 and topping_choice >= 0):
                             break
@@ -226,8 +227,8 @@ def build_order():
         show_menu(menu_dict)
         pizza = build_pizza(menu_dict)
         while True:
-            pizza_qty = int(input("\nHow many of these pizza [1-5]?:\n"))
-            if pizza_qty >= 1 and pizza_qty <= 5:
+            pizza_qty = int(input("\nHow many pizza like this [1-10]?:\n"))
+            if pizza_qty >= 1 and pizza_qty <= 10:
                 break
             else:
                 print("Invalid input, please try again\n")
@@ -264,10 +265,12 @@ def show_order(customer_info, complete_order):
         print(f"Quantity: {pizza[0]}\n")
     print(f"Order Total: {complete_order.totalprice}€")
 
+
 def save_order(customer_info, complete_order):
     print(customer_info[0])
     print(complete_order.id)
     print("Order received!")
+
 
 def confirm_order(customer_info, complete_order):
     while True:
