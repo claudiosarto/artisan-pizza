@@ -19,6 +19,9 @@ SHEET = GSPREAD_CLIENT.open('artisan_pizza')
 
 
 def read_menu():
+    """
+    Read the menu from google sheet
+    """
     print("Please wait while we load our pizzas menu...")
     menu = SHEET.worksheet('menu')
     menu_dict = {}
@@ -219,6 +222,9 @@ def build_pizza(menu_dict):
 
 
 def build_order():
+    """
+    Function to build the order
+    """
     orderid = (str(shortuuid.ShortUUID().random(length=12)).upper())
     date = datetime.now()
     date_string = date.strftime("%d-%b %Y %H:%M:%S")
@@ -252,6 +258,9 @@ def build_order():
 
 
 def show_order(customer_info, complete_order):
+    """
+    Function to print customer and complete order information
+    """
     os.system('clear')
     print(f"Dear {customer_info[0]} - Phone n.: {customer_info[1]}\n")
     print("Here your order details:")
@@ -289,6 +298,7 @@ def save_order(customer_info, complete_order):
         order_data.append(toppings_str)
         extra_toppings_str = ', '.join(pizza[1].extratoppings)
         order_data.append(extra_toppings_str)
+        order_data.append(pizza[1].price)
         order_data.append(pizza[0])
         orders_sheet.append_row(order_data)
     print("Order received!")
