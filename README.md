@@ -61,3 +61,40 @@ An order is identified by an ID and can have multiple rows corresponding to a sp
 
 ![GS-Orders](/docs/artisan-pizza-googlesheet-orders.png)
 
+# Features
+
+## Existing Features
+
+### 
+TBD
+
+### 
+TBD
+
+### 
+TBD
+
+## Future Features
+- Allow to remove toppings
+- Send text message to confirm the order
+- Send text message to inform the order is ready
+
+# Technologies Used
+
+## Languages Used
+Python
+
+## Frameworks, Tools and Resources Used
+- Google Sheet to load and store the data
+- [Diagrams.net](https://app.diagrams.net/) to create the application worlfow 
+- [Git](https://git-scm.com/) - code version control
+- [Github](https://github.com/) - repository for al the site files
+- [Gitpod](https://gitpod.io/) - IDE platform
+- [CI Python Linter Validation](https://pep8ci.herokuapp.com/) - to validate PEP8 syntax
+- [Heroku](https://www.heroku.com/) - cloud service where I deployed the application
+
+## Python Libraries Used
+- [Datetime](https://docs.python.org/3/library/datetime.html) generate the timestamp added to the order
+- [Short UUID](https://pypi.org/project/shortuuid/) for generating an unique order ID
+- [google.oauth2.service_account](https://developers.google.com/identity/protocols/oauth2/service-account) for authenticating with Google API
+- [Gspread](https://docs.gspread.org/en/latest/) to interact with Goolge API for loading and saving data
