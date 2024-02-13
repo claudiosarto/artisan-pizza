@@ -36,3 +36,28 @@ As pizza restaurant ower:
 I used [Diagrams.net](https://app.diagrams.net/) to create the application worlfow to have a guideline in terms of which functions I had to implement. Almost every block correspond to a defined function.
 
 ![Workflow](/docs/artisan-pizza-workflow-diagram.png)
+
+# Data Structure - Google Sheet
+
+I decided to integrate the application with Google sheet to have a place to load the menu and to save the orders.
+
+## Menu Worksheet
+
+Each column correspond to a Pizza, and last column is used for the Extra toppings.
+A menu fuction has been implemented to load each column in a list using gspread related methods.
+
+Here how the menu is structured:
+- Row-1 - This heading is as index/pizza ID [or extra toppings]
+- Row-2 - This represent the Pizza name
+- Row-3 - This is the price set for each pizza
+- Row-4 - From this row on each column we've all the included toppings, and for last column all the extra toppings
+
+![GS-Menu](/docs/artisan-pizza-googlesheet-menu.png)
+
+## Orders Worksheet
+
+As the name says, this worksheet is used to store the data related to the orders, so the owner can see what to prepare, with an order ID, time and all the data related to pizza and related customization in terms of base, size and extra toppings with the total price for each pizza and related quantity. 
+An order is identified by an ID and can have multiple rows corresponding to a specific pizza.
+
+![GS-Orders](/docs/artisan-pizza-googlesheet-orders.png)
+
