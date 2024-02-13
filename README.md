@@ -98,3 +98,18 @@ Python
 - [Short UUID](https://pypi.org/project/shortuuid/) for generating an unique order ID
 - [google.oauth2.service_account](https://developers.google.com/identity/protocols/oauth2/service-account) for authenticating with Google API
 - [Gspread](https://docs.gspread.org/en/latest/) to interact with Goolge API for loading and saving data
+
+## Testing
+
+### Manual Testing 
+Please refer to ![Artisan Pizza Testing](/TESTING.md) page for the performed tests.
+
+### Known Bugs
+While implementing the select_pizza_base function I faced this syntax error after deploying on Heroku, while on Gitpod everything was working fine:
+![Syntax Bug](/docs/artisan-pizza-bug.jpg)
+
+After investigating, I found out GitPod uses python-3.12.1 while Heroku was running python-3.9.18
+The function has match/case syntax supported starting from version 3.10
+Fix: udpate runtime.txt to use python-3.12.1
+
+No further bugs have been found during the implementation, deployment and testing.
