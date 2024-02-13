@@ -90,6 +90,7 @@ Python
 - [Git](https://git-scm.com/) - code version control
 - [Github](https://github.com/) - repository for al the site files
 - [Gitpod](https://gitpod.io/) - IDE platform
+- [Pythontutor](https://pythontutor.com) - To check visually how a data structure was built
 - [CI Python Linter Validation](https://pep8ci.herokuapp.com/) - to validate PEP8 syntax
 - [Heroku](https://www.heroku.com/) - cloud service where I deployed the application
 
@@ -203,4 +204,6 @@ To fork the repository:
 3. Click the Fork button in the top right corner.
 
 ### Credits
+Credits to [Delboy](https://github.com/Delboy/Fruit-Hunter) for the readme sections related to Setting up Google API and Heroku deployment
 
+I used extensively  Stackoverflow.com](https://stackoverflow.com/) to figure out the syntax of various functions.
