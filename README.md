@@ -47,7 +47,7 @@ Each column correspond to a Pizza, and last column is used for the Extra topping
 A menu fuction has been implemented to load each column in a list using gspread related methods.
 
 Here how the menu is structured:
-- Row-1 - This heading is as index/pizza ID [or extra toppings]
+- Row-1 - This heading is used as index/pizza ID [or extra toppings]
 - Row-2 - This represent the Pizza name
 - Row-3 - This is the price set for each pizza
 - Row-4 - From this row on each column we've all the included toppings, and for last column all the extra toppings
