@@ -166,8 +166,8 @@ def add_extra_toppings(pizza, extratoppings):
     toppings_list = [i for i in toppings_list if i not in pizza.toppings]
     while True:
         extra_toppings_choice = input(f"Do you want to add extra toppings "
-                                      f"for {extratoppings[1]}€ each (Y/N)?\n")
-        extra_toppings_choice.lower()
+                                      f"for {extratoppings[1]}"
+                                      f"€ each (Y/N)?\n").lower()
         match extra_toppings_choice:
             case "y":
                 os.system('clear')
