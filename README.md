@@ -65,14 +65,42 @@ An order is identified by an ID and can have multiple rows corresponding to a sp
 
 ## Existing Features
 
-### 
-TBD
+### Welcome
+Welcome function to greet the customer and gather Name and Phone number
+[<img src="docs/artisan-pizza-00-welcome.png" width="900"/>](docs/artisan-pizza-00-welcome.png)
 
-### 
-TBD
+### Menu
+The menu is loaded via API from Google Sheet after getting Name and Number.
+The user can see the Pizza list, related price and included toppings and select which pizza to order
+[<img src="docs/artisan-pizza-01-menu.png" width="900"/>](docs/artisan-pizza-01-menu.png)
 
-### 
-TBD
+### Pizza Base
+The user can select between 3 different base, extra price is showed for special ones 
+[<img src="docs/artisan-pizza-02-base.png" width="900"/>](docs/artisan-pizza-02-base.png)
+
+### Pizza Size
+The user can select pizza size, with Large or Extra Large costing extra
+[<img src="docs/artisan-pizza-03-size.png" width="900"/>](docs/artisan-pizza-03-size.png)
+
+### Pizza Extra Toppings Choice
+The user can choice to add extra toppings or not to the selected pizza  
+[<img src="docs/artisan-pizza-04-topping_choice.png" width="900"/>](docs/artisan-pizza-04-topping_choice.png)
+
+### Pizza Extra Toppings Menu
+In case the user select Y to the previous function, the extra toppings menu shows up and additional ingredients can be added to the pizza  
+[<img src="docs/artisan-pizza-05-toppings_menu.png" width="900"/>](docs/artisan-pizza-05-toppings_menu.png)
+
+### Select Quantity
+After adding all the desired extra toppings, the user can select how many pizza to add on the order 
+[<img src="docs/artisan-pizza-06-pizza-qty.png" width="900"/>](docs/artisan-pizza-06-pizza-qty.png)
+
+### Adding Another Pizza
+After confirming the number of pizza, the user can choose to select anothre pizza to be added to current order  
+[<img src="docs/artisan-pizza-07-build_another_pizza.png" width="900"/>](docs/artisan-pizza-07-build_another_pizza.png)
+
+### Order confirmation
+Once the user is done with all the pizza in the order, the full order details is displayed and required confirmation to proceed with sending it to the kitchen. After confirmation or cancellation the application starts over from the Welcome feature.
+[<img src="docs/artisan-pizza-08-confirm_order.png" width="900"/>](docs/artisan-pizza-08-confirm_order.png)
 
 ## Future Features
 - Allow to remove toppings
@@ -106,7 +134,7 @@ Python
 Please refer to ![Artisan Pizza Testing](/TESTING.md) page for the performed tests.
 
 ### Known Bugs
-While implementing the select_pizza_base function I faced this syntax error after deploying on Heroku, while on Gitpod everything was working fine:
+While implementing the select_pizza_base function I faced this syntax error after deploying on Heroku, while on Gitpod everything was working fine:  
 ![Syntax Bug](/docs/artisan-pizza-bug.jpg)
 
 After investigating, I found out GitPod uses python-3.12.1 while Heroku was running python-3.9.18  
@@ -207,3 +235,6 @@ To fork the repository:
 Credits to [Delboy](https://github.com/Delboy/Fruit-Hunter) for the readme sections related to Setting up Google API and Heroku deployment
 
 I used extensively  Stackoverflow.com](https://stackoverflow.com/) to figure out the syntax of various functions.
+
+### Acknowledgments
+I'd like to thank my mentor Jubril Akolade for giving me hints and tips during the project.
