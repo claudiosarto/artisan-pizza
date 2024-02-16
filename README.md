@@ -69,7 +69,7 @@ An order is identified by an ID and can have multiple rows corresponding to a sp
 Welcome function to greet the customer and gather Name and Phone number
 [<img src="docs/artisan-pizza-00-welcome.png" width="900"/>](docs/artisan-pizza-00-welcome.png)
 
-### Menu
+### Welcome
 The menu is loaded via API from Google Sheet after getting Name and Number.
 The user can see the Pizza list, related price and included toppings and select which pizza to order
 [<img src="docs/artisan-pizza-01-menu.png" width="900"/>](docs/artisan-pizza-01-menu.png)
@@ -118,9 +118,10 @@ Python
 - [Git](https://git-scm.com/) - code version control
 - [Github](https://github.com/) - repository for al the site files
 - [Gitpod](https://gitpod.io/) - IDE platform
-- [Pythontutor](https://pythontutor.com) - To check visually how a data structure was built
+- [Pythontutor](https://pythontutor.com) - to check visually how a data structure was built
 - [CI Python Linter Validation](https://pep8ci.herokuapp.com/) - to validate PEP8 syntax
 - [Heroku](https://www.heroku.com/) - cloud service where I deployed the application
+- [Markdown Tables Generator](https://www.tablesgenerator.com/markdown_tables) - to convert tables to MD for the testing.md page
 
 ## Python Libraries Used
 - [Datetime](https://docs.python.org/3/library/datetime.html) generate the timestamp added to the order

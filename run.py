@@ -68,7 +68,7 @@ def welcome():
         if customerdata[0] == "":
             print("Name cannot be blank, please try again")
         elif all(char.isalpha() or char.isspace() for char in customerdata[0]):
-            break            
+            break
         else:
             print("Please check the input, only [A-Z] characters are accepted")
 
