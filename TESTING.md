@@ -52,17 +52,21 @@ Manual tests have been performed extenstively during the development using the b
 | Extra Toppings Choice | Customer can use both capital or lowercase Y/N                     | Try the 2 allowed options (Y, N) both in uppercase or lowercase        | Input is valid and Extra toppings menu is displayed                              | Pass      |
 
 ###  Pizza Extra Toppings Menu Feature
-| Expected Outcome                                                   | Testing Performed                                                                | Result                                                                           | Pass/Fail |
-|--------------------------------------------------------------------|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------|-----------|
-| Customer can select only extra toppings displayed using digits     | Check alpha characters are not accepted                                          | User gets a "Invalid input, please try again" error message                      | Pass      |
-| Customer can select only extra toppings displayed using digits     | Check numbers out of range are not accepted                                      | User gets a "Invalid input, please try again" error message                      | Pass      |
-| Price within the object pizza is updated                           | Print the updated pizza price                                                    | Price is updated based on base selected                                          | Pass      |
-| Customer gets the add extra toppings choice question               | After selecting the extra topping validate the user can add other extra toppings | User is asked for extra toppings again                                           | Pass      |
-| Extra toppings menu list is updated                                | After selecting the extra topping, it gets removed from available options        | New list of extra toppings is displayed without the latest topping selected      | Pass      |
+| Select Extra Topping           | Customer can select only extra toppings displayed using digits     | Check alpha characters are not accepted                                          | User gets a "Invalid input, please try again" error message                      | Pass      |
+| Select Extra Topping           | Customer can select only extra toppings displayed using digits     | Check numbers out of range are not accepted                                      | User gets a "Invalid input, please try again" error message                      | Pass      |
+| Update pizza price             | Price within the object pizza is updated                           | Print the updated pizza price                                                    | Price is updated based on number of toppings added                                           | Pass      |
+| Customer Extra Topping choice  | Customer gets the add extra toppings choice question               | After selecting the extra topping validate the user can add other extra toppings | User is asked for extra toppings again                                           | Pass      |
+| Update extra topping menu list | Extra toppings menu list is updated                                | After selecting the extra topping, it gets removed from available options        | New list of extra toppings is displayed without the latest topping selected      | Pass      |
 
 ###  Select Pizza Quantity Feature
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 |---|---|---|---|---|
+| Select pizza quantity          | Customer can select only pizza displayed using digits 1-10     | Check alpha characters are not accepted                                          | User gets a "Invalid input, please try again" error message                 | Pass      |
+| Select pizza quantity          | Customer can select only pizza displayed using digits 1-10     | Check numbers out of range 1-10 are not accepted                                 | User gets a "Invalid input, please try again" error message                 | Pass      |
+| Update pizza price             | Price within the object pizza is updated                       | Print the updated pizza price                                                    | Price is updated based on extra toppings added                              | Pass      |
+| Update order price             | Total Price within the object order is updated                 | Print the updated order total price                                              | Price is updated based on selected pizza quantity                           | Pass      |
+
+
 
 ###  Adding Another Pizza Feature
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
