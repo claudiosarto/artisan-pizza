@@ -90,7 +90,7 @@ The user can choice to add extra toppings or not to the selected pizza
 In case the user select Y to the previous function, the extra toppings menu shows up and additional ingredients can be added to the pizza  
 [<img src="docs/artisan-pizza-05-toppings_menu.png" width="900"/>](docs/artisan-pizza-05-toppings_menu.png)
 
-### Select Quantity
+### Select Pizza Quantity
 After adding all the desired extra toppings, the user can select how many pizza to add on the order 
 [<img src="docs/artisan-pizza-06-pizza-qty.png" width="900"/>](docs/artisan-pizza-06-pizza-qty.png)
 
@@ -98,7 +98,7 @@ After adding all the desired extra toppings, the user can select how many pizza 
 After confirming the number of pizza, the user can choose to select anothre pizza to be added to current order  
 [<img src="docs/artisan-pizza-07-build_another_pizza.png" width="900"/>](docs/artisan-pizza-07-build_another_pizza.png)
 
-### Order confirmation
+### Order Confirmation
 Once the user is done with all the pizza in the order, the full order details is displayed and required confirmation to proceed with sending it to the kitchen. After confirmation or cancellation the application starts over from the Welcome feature.
 [<img src="docs/artisan-pizza-08-confirm_order.png" width="900"/>](docs/artisan-pizza-08-confirm_order.png)
 
