@@ -65,8 +65,8 @@ def welcome():
     customerdata = ["name", "number"]
     while True:
         customerdata[0] = input("Please enter your name: \n")
-        if customerdata[0] == "":
-            print("Name cannot be blank, please try again")
+        if all(customerdata[0] == "" or char.isspace() for char in customerdata[0]):
+            print("Name cannot be blank or empty, please try again")
         elif all(char.isalpha() or char.isspace() for char in customerdata[0]):
             break
         else:
