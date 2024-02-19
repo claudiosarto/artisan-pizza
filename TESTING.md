@@ -17,12 +17,14 @@ Testing performed exclusively on a desktop
 Manual tests have been performed extenstively during the development using the both print or pprint functions to verify the correct variable contents.
 
 ### Welcome Feature 
-| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
-|---|---|---|---|---|
-| Name input | Customer Name is validated | Check Name is not blank | User gets a "Name cannot be blank, please try again" error | Pass |
-| Name input | Customer Name is validated | Check Name doesn't contain numbers | User gets a "Please check the input, only [A-Z] characters are accepted" error | Pass |
-| Name input | Customer Name is validated | Name contain a space character | User name is accepted  | Pass |
-| Phone input | Phone number validated correctly | Check Phone is digit only and 10 digits long | User gets a "Phone number should be 10 numeric digits" error | Pass |
+| Feature                        | Expected Outcome                                               | Testing Performed                                                                | Result                                                                         | Pass/Fail |
+|--------------------------------|----------------------------------------------------------------|----------------------------------------------------------------------------------|--------------------------------------------------------------------------------|-----------|
+| Name input                     | Customer Name is validated                                     | Check Name is not blank                                                          | User gets a "Name cannot be blank, please try again" error                     | Pass      |
+| Name input                     | Customer Name is validated                                     | Name contain a single or multiple space characters only                          | User gets a "Name cannot be blank, please try again" error                     | Pass      |
+| Name input                     | Customer Name is validated                                     | Check Name doesn't contain numbers                                               | User gets a "Please check the input, only [A-Z] characters are accepted" error | Pass      |
+| Name input                     | Customer Name is validated                                     | Name contain a space character                                                   | User name is accepted                                                          | Pass      |
+| Phone input                    | Phone number validated correctly                               | Check Phone is digit only and 10 digits long                                     | User gets a "Phone number should be 10 numeric digits" error                   | Pass      |
+
 
 ### Menu Feature
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
