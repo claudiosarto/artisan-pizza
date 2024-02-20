@@ -235,7 +235,7 @@ To fork the repository:
 ### Credits
 Credits to [Delboy](https://github.com/Delboy/Fruit-Hunter) for the readme sections related to Setting up Google API and Heroku deployment
 
-I used extensively  Stackoverflow.com](https://stackoverflow.com/) to figure out the syntax of various functions.
+I used extensively  [Stackoverflow.com](https://stackoverflow.com/) to figure out the syntax of various functions.
 
 ### Acknowledgments
-I'd like to thank my mentor Jubril Akolade for giving me hints and tips during the project.
+I'd like to thank my mentor [Jubril Akolade](https://www.linkedin.com/in/jubrillionaire/) for giving me hints and tips during the project.
